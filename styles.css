@@ -1,8 +1,3 @@
-/* 
-   Scoops Delight - Ice Cream Shop Landing Page
-   Custom CSS Styles 
-*/
-
 :root {
     --primary: #ff85a2;      /* Pink */
     --secondary: #ffd6e0;    /* Light Pink */
@@ -136,7 +131,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background-image: url('https://picsum.photos/seed/icecreamhero/1920/1080');
+    background-image: url(''); /* Add Image Later*/
     background-size: cover;
     background-position: center;
     position: relative;
