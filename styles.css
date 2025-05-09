@@ -131,7 +131,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background-image: url(''); /* Add Image Later*/
+    background-image: url('./assets/icecream18.jpg'); 
     background-size: cover;
     background-position: center;
     position: relative;
