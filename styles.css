@@ -16,6 +16,20 @@ body {
     background-color: #fff;
 }
 
+body {
+    position: relative;
+}
+
+.nav-link.active {
+    font-weight: bold;
+    color: #ff6b81 !important;  /* Your highlight color */
+}
+
+section {
+    scroll-margin-top: 100px; /* helps offset if using fixed nav */
+}
+
+
 h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
 }

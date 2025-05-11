@@ -1,8 +1,3 @@
-/**
- * Scoops Delight - Ice Cream Shop Landing Page
- * Custom JavaScript
- */
-
 document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize Bootstrap components
@@ -42,35 +37,36 @@ function initBootstrapComponents() {
  * Setup smooth scrolling for anchor links
  */
 function setupSmoothScrolling() {
-    const links = document.querySelectorAll('a[href^="#"]');
-    
+    const links = document.querySelectorAll('a.nav-link[href^="#"]');
+
     for (const link of links) {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             e.preventDefault();
-            
+
             const targetId = this.getAttribute('href');
-            
-            // Skip if hash is just "#"
             if (targetId === '#') return;
-            
+
             const targetElement = document.querySelector(targetId);
-            
             if (targetElement) {
-                // Calculate navbar height to offset scroll position
                 const navbarHeight = document.querySelector('.navbar').offsetHeight;
-                
-                // Get target position
                 const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY;
-                
-                // Scroll to target with navbar height offset
+
                 window.scrollTo({
-                    top: targetPosition - navbarHeight,
+                    top: targetPosition - navbarHeight + 1, // +1 to trigger ScrollSpy update
                     behavior: 'smooth'
                 });
+
+                // Manually set active class after slight delay (let ScrollSpy do its job too)
+                setTimeout(() => {
+                    const navLinks = document.querySelectorAll('.nav-link');
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    this.classList.add('active');
+                }, 400);
             }
         });
     }
 }
+
 
 /**
  * Setup scroll animations for elements
@@ -197,4 +193,11 @@ window.addEventListener('scroll', function() {
         navbar.style.padding = '1rem 0';
         navbar.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
     }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const scrollSpy = new bootstrap.ScrollSpy(document.body, {
+        target: '#navbar',
+        offset: 80  // Adjust based on your navbar height
+    });
 });
